@@ -15,10 +15,19 @@ function Api() {
 			setWeathere(response.data);
 		});
 	}, [path]);
+
 	if (weathere) {
+		const placeholder = `"${weathere.weather[0].description}" correlates with your mood of...`;
 		return (
 			<div>
-				<p> {weathere.weather[0].description}</p>
+				<h2> Current weather: {weathere.weather[0].description}</h2>
+				<form>
+					<input
+						type="text"
+						placeholder={placeholder}
+						style={{ width: 300 }}
+					></input>
+				</form>
 			</div>
 		);
 	} else {
